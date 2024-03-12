@@ -1,0 +1,56 @@
+---
+import Badge from "./Badge.astro";
+
+const data = [
+  {
+    date: "October 2022",
+    title: "Senior Consultant @ Capgemini Italia",
+    description:
+      "I'm leading the team as the tech leader in order to deliver web and mobile applications with in-depth skills. I’m currently working on complex projects that require a solid understanding of software design and agile development principles.",
+    tags: ["Next.js", "Vue", "NestJS", "Postgres", "Shopify", "GCloud"],
+  },
+  {
+    date: "September 2021",
+    title: "Full Stack Developer @ Trident Swiss",
+    description:
+      "Delivered web and mobile interface experiences in different areas from tourism to e-commerce, working with the latest cutting edge technologies including Next.js, React and React Native.",
+    tags: ["Next.js", "React", "Fastify", "Postgres", "Strapi", "AWS"],
+  },
+  {
+    date: "June 2019",
+    title: "Backend Developer @ Alten Italia",
+    description:
+      "I engineered and delivered IT solutions for a leading finance company in order to transition the old infrastructure through a new microservices architecture. The stack used involved Java, Node.js and React.",
+    tags: ["React", "Node.js", "MySQL"],
+  },
+  {
+    date: "January 2019",
+    title: "Full Stack Developer @ Contrader Group",
+    description:
+      "Developed and maintained code for in-house and client websites. I also worked with a team of developers to assist in code reviews and process improvements.",
+    tags: ["React", "Node.js", "MongoDB"],
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 mt-10 max-w-xl lg:max-w-none">
+  {
+    data.map((item) => (
+      <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white" />
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">
+          {item.date}
+        </time>
+        <h3 class="text-lg font-semibold text-gray-900">{item.title}</h3>
+        <p class="mb-4 text-base font-normal text-gray-500">
+          {item.description}
+        </p>
+        <div class="flex gap-2 flex-wrap">
+          {item.tags.map((tag) => (
+            <Badge>{tag}</Badge>
+          ))}
+        </div>
+      </li>
+    ))
+  }
+</ol>

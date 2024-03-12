@@ -1,0 +1,66 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Welcome to Manu's portfolio. Showcasing expertise in web development and a passion for creating engaging online experiences."
+    />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - EScazza</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      @font-face {
+        font-family: "Inter";
+        src: url("/fonts/Inter.ttf");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      html {
+        font-family: system-ui, sans-serif;
+        background: white;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
+  </body>
+</html>
