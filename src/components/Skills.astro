@@ -1,5 +1,9 @@
 ---
 import { skills } from "../data/skills";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="bg-white py-24 sm:py-32">
@@ -7,7 +11,7 @@ import { skills } from "../data/skills";
     <h2
       class="mt-2 mb-14 text-2xl font-medium text-center tracking-tight text-gray-900 sm:text-3xl"
     >
-      Technologies I love building stuff with
+      {t("skills.title")}
     </h2>
     <div
       class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_64px,_black_calc(100%-20px),transparent_100%)] sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"

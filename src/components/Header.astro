@@ -1,5 +1,16 @@
 ---
+import LanguagePicker from "./LanguagePicker.astro";
 import { social } from "../data/social";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const { pathname } = Astro.url;
 ---
 
@@ -13,7 +24,7 @@ const { pathname } = Astro.url;
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href="/" class="-m-1.5 p-1.5">
+      <a href={translatePath("/")} class="-m-1.5 p-1.5">
         <span class="font-bold tracking-wide">E.SCAZZA</span>
       </a>
     </div>
@@ -23,7 +34,7 @@ const { pathname } = Astro.url;
         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
         @click="showMenu = true"
       >
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only">{t("sr.menuopen")}</span>
         <svg
           class="h-6 w-6"
           fill="none"
@@ -41,34 +52,39 @@ const { pathname } = Astro.url;
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <a
-        href="/background"
+        href={translatePath("/background")}
         class="text-sm font-semibold leading-6 transition-colors text-gray-900 hover:text-blue-700"
         class:list={[
           pathname?.match(/\/background/i) && "border-b-2 border-blue-700",
-        ]}>Background</a
+        ]}>{t("nav.background")}</a
       >
       <a
-        href="/contacts"
+        href={translatePath("/contacts")}
         class="text-sm font-semibold leading-6 transition-colors text-gray-900 hover:text-blue-700"
         class:list={[
           pathname?.match(/\/contacts/i) && "border-b-2 border-blue-700",
-        ]}>Contacts</a
+        ]}>{t("nav.contacts")}</a
       >
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <div
+      class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:divide-x lg:divide-gray-500/20 gap-10"
+    >
       <ul
-        class="flex flex-wrap justify-between items-center text-sm font-medium text-gray-500 max-w-[200px] w-full md:w-[200px]"
+        class="flex flex-wrap justify-between items-center text-sm font-medium text-gray-500 max-w-[200px] w-[200px]"
       >
         {
           social.map((item) => (
             <li class="hover:brightness-75 transition-all">
-              <a href={item.url} target="_blank">
+              <a href={translatePath(item.url)} target="_blank">
                 <img src={item.icon} alt={item.alt} class="w-6 h-6" />
               </a>
             </li>
           ))
         }
       </ul>
+      <div class="grid place-items-center pl-10">
+        <LanguagePicker />
+      </div>
     </div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
@@ -80,7 +96,11 @@ const { pathname } = Astro.url;
       :class="showMenu ? 'opacity-100' : 'opacity-0 pointer-events-none'"
     >
       <div class="flex items-center justify-between">
-        <a href="/" class="-m-1.5 p-1.5" @click="showMenu = false">
+        <a
+          href={translatePath("/")}
+          class="-m-1.5 p-1.5"
+          @click="showMenu = false"
+        >
           <span class="font-bold tracking-wide">E.SCAZZA</span>
         </a>
         <button
@@ -88,7 +108,7 @@ const { pathname } = Astro.url;
           class="-m-2.5 rounded-md p-2.5 text-gray-700"
           @click="showMenu = false"
         >
-          <span class="sr-only">Close menu</span>
+          <span class="sr-only">{t("sr.menuclose")}</span>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -108,14 +128,14 @@ const { pathname } = Astro.url;
         <div class="-my-6 divide-y divide-gray-500/10 w-full">
           <div class="space-y-2 py-6 text-center">
             <a
-              href="/background"
+              href={translatePath("/background")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              @click="showMenu = false">Background</a
+              @click="showMenu = false">{t("nav.background")}</a
             >
             <a
-              href="/contacts"
+              href={translatePath("/contacts")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              @click="showMenu = false">Contacts</a
+              @click="showMenu = false">{t("nav.contacts")}</a
             >
           </div>
           <ul
@@ -124,13 +144,18 @@ const { pathname } = Astro.url;
             {
               social.map((item) => (
                 <li class="hover:brightness-75 transition-all">
-                  <a href={item.url} target="_blank" @click="showMenu = false">
+                  <a
+                    href={translatePath(item.url)}
+                    target="_blank"
+                    @click="showMenu = false"
+                  >
                     <img src={item.icon} alt={item.alt} class="w-6 h-6" />
                   </a>
                 </li>
               ))
             }
           </ul>
+          <LanguagePicker />
         </div>
       </div>
     </div>

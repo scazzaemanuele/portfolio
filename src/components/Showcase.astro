@@ -1,5 +1,9 @@
 ---
 import Timeline from "./Timeline.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="overflow-hidden bg-white py-10 sm:py-32">
@@ -10,19 +14,15 @@ import Timeline from "./Timeline.astro";
       <div class="lg:pr-8 lg:pt-4">
         <div class="lg:max-w-lg">
           <h2 class="text-base font-semibold leading-7 text-blue-600">
-            Get to know me
+            {t("showcase.title")}
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
           >
-            Who I am
+            {t("showcase.subtitle")}
           </p>
           <p class="mt-6 text-lg leading-8 text-gray-600">
-            I always bring a passion for crafting exceptional digital
-            experiences to every project, ensuring seamless functionality and
-            stunning design. My dedication to staying abreast of the latest
-            technologies and trends ensures that I deliver innovative solutions
-            that meet and exceed client expectations.
+            {t("showcase.description")}
           </p>
           <Timeline />
         </div>
