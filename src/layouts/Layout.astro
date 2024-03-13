@@ -14,7 +14,11 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html
+  lang={lang}
+  x-data="{ preferColorScheme: $persist('light') }"
+  :class="{dark: preferColorScheme === 'dark'}"
+>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -34,7 +38,7 @@ const lang = getLangFromUrl(Astro.url);
     <title>{title} - EScazza</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body class="bg-white dark:bg-zinc-900">
     <Header />
     <main>
       <slot />
@@ -51,7 +55,6 @@ const lang = getLangFromUrl(Astro.url);
 
       html {
         font-family: system-ui, sans-serif;
-        background: white;
       }
       code {
         font-family:

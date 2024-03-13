@@ -6,18 +6,20 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="bg-white py-24 sm:py-32">
+<div class="bg-white dark:bg-zinc-900 py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-3xl lg:text-center">
-      <h2 class="text-base font-semibold leading-7 text-blue-600">
+      <h2
+        class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400"
+      >
         {t("features.subtitle")}
       </h2>
       <p
-        class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
       >
         {t("features.title")}
       </p>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
+      <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
         {t("features.description")}
       </p>
     </div>
@@ -28,13 +30,13 @@ const t = useTranslations(lang);
         {
           features[lang].map((f) => (
             <div class="relative pl-16">
-              <dt class="text-base font-semibold leading-7 text-gray-900">
+              <dt class="text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
                 <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
                   <img src={f.icon} alt={f.name} class="h-6 w-6 text-white" />
                 </div>
                 {f.name}
               </dt>
-              <dd class="mt-2 text-base leading-7 text-gray-600">
+              <dd class="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400">
                 {f.description}
               </dd>
             </div>

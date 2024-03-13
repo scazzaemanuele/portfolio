@@ -1,26 +1,26 @@
-import fb from "../assets/social/fb.svg";
-import github from "../assets/social/github.svg";
-import ig from "../assets/social/ig.svg";
-import linkedin from "../assets/social/linkedin.svg";
+import Ig from "../components/icons/Ig.astro";
+import Fb from "../components/icons/Fb.astro";
+import Linkedin from "../components/icons/Linkedin.astro";
+import Github from "../components/icons/Github.astro";
 
 export const social = [
   {
-    icon: ig.src,
+    icon: Ig,
     url: "https://www.instagram.com/scazzaemanuele",
     alt: "Instagram",
   },
   {
-    icon: fb.src,
+    icon: Fb,
     url: "https://www.facebook.com/profile.php?id=100074617115125",
     alt: "Facebook",
   },
   {
-    icon: linkedin.src,
+    icon: Linkedin,
     url: "https://www.linkedin.com/in/emanuele-scazza",
     alt: "LinkedIn",
   },
   {
-    icon: github.src,
+    icon: Github,
     url: "https://github.com/scazzaemanuele",
     alt: "GitHub",
   },

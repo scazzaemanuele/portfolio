@@ -12,6 +12,7 @@ export const ui = {
     "sr.menuclose": "Chiudi menu principale",
     "sr.modalclose": "Chiudi modale",
     "sr.policy": "Accetta le politiche",
+    "sr.theme": "Inverti il tema",
 
     /** NAV MENU */
     "nav.background": "Profilo",
@@ -63,6 +64,7 @@ export const ui = {
     "sr.menuclose": "Close main menu",
     "sr.modalclose": "Close modal",
     "sr.policy": "Agree to policies",
+    "sr.theme": "Toggle theme",
 
     /** NAV MENU */
     "nav.background": "Profile",

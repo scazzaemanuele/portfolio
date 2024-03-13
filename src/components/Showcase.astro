@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="overflow-hidden bg-white py-10 sm:py-32">
+<div class="overflow-hidden bg-white dark:bg-zinc-900 py-10 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div
       class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -17,11 +17,11 @@ const t = useTranslations(lang);
             {t("showcase.title")}
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
           >
             {t("showcase.subtitle")}
           </p>
-          <p class="mt-6 text-lg leading-8 text-gray-600">
+          <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
             {t("showcase.description")}
           </p>
           <Timeline />

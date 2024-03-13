@@ -1,4 +1,4 @@
-<footer class="bg-white rounded-lg m-4">
+<footer class="bg-white dark:bg-zinc-900 p-4">
   <div
     class="w-full mx-auto max-w-screen-xl p-4 flex flex-col md:flex-row gap-4 items-center justify-between"
   >
@@ -7,10 +7,12 @@
       target="_blank"
       class="flex gap-2 items-center hover:brightness-75 transition-all"
       ><img src="/mail.svg" class="w-6 aspect-square" alt="Mail" />
-      <span class="text-gray-500">scazzaemanuele@gmail.com</span></a
+      <span class="text-gray-500 dark:text-gray-400"
+        >scazzaemanuele@gmail.com</span
+      ></a
     >
     <span
-      class="text-sm text-gray-500 sm:text-center mt-3 sm:mt-0"
+      class="text-sm text-gray-500 dark:text-gray-400 sm:text-center mt-3 sm:mt-0"
       x-data="{ year: new Date().getFullYear() }"
       x-text="`© ${year} Emanuele Scazza. All Rights Reserved.`"></span>
   </div>
