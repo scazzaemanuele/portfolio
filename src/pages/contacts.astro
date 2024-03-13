@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Dialog from "../components/Dialog.astro";
 ---
 
 <Layout title="Contacts">
@@ -16,8 +17,9 @@ import Layout from "../layouts/Layout.astro";
       action="#"
       method="POST"
       class="mx-auto mt-16 max-w-xl sm:mt-20"
-      x-data="{ name: '', surname: '', company: '', email: '', phone: '', message: '', policy: false }"
-      @submit.prevent="fetch('https://formsubmit.co/ajax/scazzaemanuele@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name, surname, company, email, phone, message }) }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));"
+      x-data="{ name: '', surname: '', company: '', email: '', phone: '', message: '', policy: false, showModal: false}"
+      x-effect="showModal ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'"
+      @submit.prevent="fetch('https://formsubmit.co/ajax/dd41bd3b3431fc8aeba972a0b7e285ab', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name, surname, company, email, phone, message }) }).then(response => response.json()).then(({success}) => { if(success === 'true') { showModal = true } else { alert('Something went wrong. Please reach me out at scazzaemanuele@gmail.com') } }).catch(error => console.log(error));"
     >
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div>
@@ -164,6 +166,8 @@ import Layout from "../layouts/Layout.astro";
           >Let's talk</button
         >
       </div>
+      <!-- Confirmation Dialog -->
+      <Dialog />
     </form>
   </div>
 </Layout>
