@@ -16,10 +16,15 @@ const lang = getLangFromUrl(Astro.url);
 <!doctype html>
 <html
   lang={lang}
-  x-data="{ preferColorScheme: $persist('light') }"
-  :class="{dark: preferColorScheme === 'dark'}"
+  x-data="{ theme: $persist('light').as('theme') }"
+  :class="{ dark: theme === 'dark' }"
 >
   <head>
+    <script is:inline>
+      const theme = JSON.parse(localStorage.getItem("theme"));
+      document.querySelector("html").className = theme;
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="description"

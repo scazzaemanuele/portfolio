@@ -1,11 +1,13 @@
 <button
   type="button"
   role="button"
+  id="theme-toggler"
+  aria-label="theme-toggler"
   class="text-gray-700 dark:text-gray-400 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 p-2 w-10 h-10 grid place-items-center"
-  @click="preferColorScheme = preferColorScheme === 'dark' ? 'light' : 'dark'"
+  @click="theme = theme === 'dark' ? 'light' : 'dark'"
 >
   <svg
-    x-show="preferColorScheme === 'light'"
+    x-show="theme === 'light'"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -20,7 +22,7 @@
     ></path>
   </svg>
   <svg
-    x-show="preferColorScheme === 'dark'"
+    x-show="theme === 'dark'"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
