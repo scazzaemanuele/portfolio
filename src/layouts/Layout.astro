@@ -11,6 +11,7 @@ interface Props {
 const { title } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
+const socialImageURL = new URL('/me.webp', Astro.url);
 ---
 
 <!doctype html>
@@ -39,8 +40,13 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
+    <meta property="og:title" content="E. Scazza - Web Developer">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Manu's portfolio">
+    <meta property="og:image" content={socialImageURL}>
+
     <meta name="generator" content={Astro.generator} />
-    <title>{title} - EScazza</title>
+    <title>E. Scazza - {title}</title>
     <ViewTransitions />
   </head>
   <body class="bg-white dark:bg-zinc-900">
