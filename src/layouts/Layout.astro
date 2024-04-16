@@ -11,7 +11,6 @@ interface Props {
 const { title } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const socialImageURL = new URL('/me.webp', Astro.url);
 ---
 
 <!doctype html>
@@ -43,7 +42,7 @@ const socialImageURL = new URL('/me.webp', Astro.url);
     <meta property="og:title" content="E. Scazza - Web Developer">
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Manu's portfolio">
-    <meta property="og:image" content={socialImageURL}>
+    <meta property="og:image" content="https://www.escazza.com/me.webp">
 
     <meta name="generator" content={Astro.generator} />
     <title>E. Scazza - {title}</title>
