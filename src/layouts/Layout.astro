@@ -77,6 +77,20 @@ const lang = getLangFromUrl(Astro.url);
           Courier New,
           monospace;
       }
+      @media screen and (min-width: 768px) { 
+        .fade-in-section {
+          opacity: 0;
+          transform: translateY(50px);
+          visibility: hidden;
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+          will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+          opacity: 1;
+          transform: none;
+          visibility: visible;
+        }
+      }
     </style>
   </body>
 </html>

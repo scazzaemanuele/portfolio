@@ -29,7 +29,7 @@ const t = useTranslations(lang);
       >
         {
           features[lang].map((f) => (
-            <div class="relative pl-16">
+            <div class="relative pl-16 fade-in-section">
               <dt class="text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
                 <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
                   <img src={f.icon} alt={f.name} class="h-6 w-6 text-white" />
@@ -46,3 +46,21 @@ const t = useTranslations(lang);
     </div>
   </div>
 </div>
+
+<script is:inline>
+  sections = Array.from(document.getElementsByClassName("fade-in-section"));
+  
+  observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const timeout = i % 2 === 0 ? 0 : 250
+        setTimeout(() => entry.target.classList.add("is-visible"), timeout)
+        observer.unobserve(entry.target)
+      }
+    });
+  });
+  
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
