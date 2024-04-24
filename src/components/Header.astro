@@ -78,11 +78,7 @@ const { pathname } = Astro.url;
         {
           social.map(({ icon: Icon, ...item }) => (
             <li class="hover:brightness-75 transition-all">
-              <a
-                href={translatePath(item.url)}
-                target="_blank"
-                aria-label={item.alt}
-              >
+              <a href={item.url} target="_blank" aria-label={item.alt}>
                 <Icon class="text-gray-700 dark:text-gray-300 w-6 h-6" />
               </a>
             </li>
@@ -157,7 +153,7 @@ const { pathname } = Astro.url;
               social.map(({ icon: Icon, ...item }) => (
                 <li class="hover:brightness-75 transition-all">
                   <a
-                    href={translatePath(item.url)}
+                    href={item.url}
                     target="_blank"
                     aria-label={item.alt}
                     @click="showMenu = false"

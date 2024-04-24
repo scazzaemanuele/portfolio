@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="bg-white dark:bg-zinc-900 py-24 sm:py-32">
+<div class="bg-white dark:bg-zinc-900 py-24 sm:py-32" x-init="animate()">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-3xl lg:text-center">
       <h2
@@ -48,19 +48,21 @@ const t = useTranslations(lang);
 </div>
 
 <script is:inline>
-  sections = Array.from(document.getElementsByClassName("fade-in-section"));
-  
-  observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        const timeout = i % 2 === 0 ? 0 : 250
-        setTimeout(() => entry.target.classList.add("is-visible"), timeout)
-        observer.unobserve(entry.target)
-      }
+  function animate() {
+    sections = Array.from(document.getElementsByClassName("fade-in-section"));
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const timeout = i % 2 === 0 ? 0 : 250;
+          setTimeout(() => entry.target.classList.add("is-visible"), timeout);
+          observer.unobserve(entry.target);
+        }
+      });
     });
-  });
-  
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }
 </script>
