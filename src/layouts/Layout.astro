@@ -39,10 +39,10 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <meta property="og:title" content="E. Scazza - Web Developer">
+    <meta property="og:title" content="E. Scazza - Web Developer" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Manu's portfolio">
-    <meta property="og:image" content="https://www.escazza.com/me.webp">
+    <meta property="og:description" content="Manu's portfolio" />
+    <meta property="og:image" content="https://www.escazza.com/me.webp" />
 
     <meta name="generator" content={Astro.generator} />
     <title>E. Scazza - {title}</title>
@@ -77,12 +77,14 @@ const lang = getLangFromUrl(Astro.url);
           Courier New,
           monospace;
       }
-      @media screen and (min-width: 768px) { 
+      @media screen and (min-width: 768px) {
         .fade-in-section {
           opacity: 0;
           transform: translateY(50px);
           visibility: hidden;
-          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+          transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
           will-change: opacity, visibility;
         }
         .fade-in-section.is-visible {
@@ -90,6 +92,9 @@ const lang = getLangFromUrl(Astro.url);
           transform: none;
           visibility: visible;
         }
+      }
+      [x-cloak] {
+        display: none !important;
       }
     </style>
   </body>
