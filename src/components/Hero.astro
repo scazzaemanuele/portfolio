@@ -4,6 +4,8 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "../i18n/utils";
+import { Image } from "astro:assets";
+import myImage from "../assets/me.webp";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -45,13 +47,7 @@ const translatePath = useTranslatedPath(lang);
         <div
           class="inline-block w-80 aspect-square rounded-full overflow-hidden"
         >
-          <img
-            class="object-cover aspect-square"
-            src="/me.webp"
-            alt="Ema"
-            width="320px"
-            height="320px"
-          />
+          <Image src={myImage} alt="Hero Picture" width={500} height={500} />
         </div>
       </div>
     </div>
