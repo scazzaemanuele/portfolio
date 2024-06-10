@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { skills } from "../data/skills";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
@@ -17,11 +18,13 @@ const t = useTranslations(lang);
       {
         skills.map((item) => (
           <li class="dark:bg-gray-50 dark:w-fit dark:aspect-square dark:rounded-full dark:grid dark:place-items-center dark:p-2">
-            <img
+            <Image
               class="w-[100px] h-[50px] object-contain"
               src={item.icon}
               alt={item.name}
               sizes="200px"
+              width={200}
+              height={200}
             />
           </li>
         ))
