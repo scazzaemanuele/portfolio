@@ -75,7 +75,7 @@ export const ui = {
     "hero.subtitle": "Web Developer",
     "hero.description":
       "Tech enthusiast always ready to help you craft delightful online experiences. With a knack and a love for coding, I'll turn your ideas into functional, captivating websites",
-    "hero.cta": "Learn more",
+    "hero.cta": "Get in touch",
 
     /** SKILLS */
     "skills.title": "Technologies I use the most",
