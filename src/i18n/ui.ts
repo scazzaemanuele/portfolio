@@ -3,7 +3,7 @@ export const languages = {
   en: "English",
 };
 
-export const defaultLang = "it";
+export const defaultLang = "en";
 
 export const ui = {
   it: {
@@ -78,7 +78,7 @@ export const ui = {
     "hero.cta": "Learn more",
 
     /** SKILLS */
-    "skills.title": "Technologies I love building stuff with",
+    "skills.title": "Technologies I use the most",
 
     /** SHOWCASE */
     "showcase.title": "Get to know me",

@@ -7,7 +7,7 @@ import alpinejs from "@astrojs/alpinejs";
 export default defineConfig({
   integrations: [tailwind(), alpinejs({ entrypoint: "/alpine.config.ts" })],
   i18n: {
-    defaultLocale: "it",
-    locales: ["it", "en"],
+    defaultLocale: "en",
+    locales: ["en", "it"],
   },
 });
